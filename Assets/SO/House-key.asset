@@ -16,3 +16,4 @@ MonoBehaviour:
   height: 2
   itemIcon: {fileID: 21300000, guid: c0ed4c9c7a9e0564ca6c0001f9268871, type: 3}
   itemID: 1
+  itemName: HOUSE KEY

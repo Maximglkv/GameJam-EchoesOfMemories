@@ -8,23 +8,29 @@ public class LetterInteraction : MonoBehaviour
     public GameObject envelopeA;
     public GameObject envelopeB;
     public GameObject grid;
+    public GameObject letter;
     public TextMeshProUGUI script;
     public TextMeshProUGUI guide;
     
     
 
-    public void EnvelopeOpen()
+    public void EnvelopeAOpen()
     {
         envelopeA.SetActive(false);
         envelopeB.SetActive(true);
     }
 
-    public void LetterOpen()
+    public void EnvelopeBOpen()
     {
         envelopeB.SetActive(false);
         grid.SetActive(true);
 
         script.text = "";
         guide.text = "CLICK TO PICK UP/DOWN AND MOVE TO OBJECTS\nALSO CLICK AND PRESS 'R' TO ROTATE OBJECTS";
+    }
+
+    public void LetterClose()
+    {
+        letter.SetActive(false);
     }
 }

@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
+using TMPro;
 using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
     [HideInInspector]
     public ItemGrid selectedItemGrid;
-    public Camera cam;
     public LetterInteraction letterInteraction;
+    public GameObject letter;
     
     public ItemGrid SelectedItemGrid {
         get => selectedItemGrid;
@@ -52,10 +52,27 @@ public class InventoryController : MonoBehaviour
             }
         }
 
-        if(selectedItemGrid != null && i != 9)
+        if(selectedItemGrid != null && i <= 3)
         {
             InsertRandomItem(i);
             i++;
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(itemToHighlight == null) {return;}
+            if(itemToHighlight.itemData.itemID == 2)
+            {
+                letter.SetActive(true);
+            }
+            if(itemToHighlight.itemData.itemID == 3)
+            {
+                if(selectedItemGrid != null && i <= 9)
+                {
+                    InsertRandomItem(i);
+                    i++;
+                }
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.R))
@@ -131,12 +148,15 @@ public class InventoryController : MonoBehaviour
             if(itemToHighlight != null)
             {
                 inventoryHighlight.Show(true);
+                ChangeText();
                 inventoryHighlight.SetSize(itemToHighlight);
                 inventoryHighlight.SetPosition(selectedItemGrid, itemToHighlight);
             }
             else
             {
                 inventoryHighlight.Show(false);
+                letterInteraction.script.text = "";
+                letterInteraction.guide.text = "CLICK TO PICK UP/DOWN AND MOVE TO OBJECTS\nALSO CLICK AND PRESS 'R' TO ROTATE OBJECTS";
             }
         }
         else
@@ -241,7 +261,7 @@ public class InventoryController : MonoBehaviour
 
     private void ChangeText()
     {
-        switch(selectedItem.itemData.itemID)
+        switch(itemToHighlight.itemData.itemID)
         {
             case 0:
                 letterInteraction.script.text = "ATTIC KEY";
@@ -252,36 +272,36 @@ public class InventoryController : MonoBehaviour
                 letterInteraction.guide.text = "";
                 break;
             case 2:
-                letterInteraction.script.text = "LETTER";
-                letterInteraction.guide.text = "CLIK TO READ";
+                letterInteraction.script.text = "MY DEAREST PEPPER";
+                letterInteraction.guide.text = "PRESS 'E' TO READ";
                 break;
             case 3:
+                letterInteraction.script.text = "AM ENVELOPE FROM 'ASTER'";
+                letterInteraction.guide.text = "What's in it...? (PRESS 'E' TO SHAKE)";
+                break;
+            case 4:
                 letterInteraction.script.text = "BROKEN PICTRUE";
                 letterInteraction.guide.text = "";
                 break;
-            case 4:
-                letterInteraction.script.text = "PIECE OF PICTURE";
-                letterInteraction.guide.text = "";
-                break;
             case 5:
-                letterInteraction.script.text = "PIECE OF PICTURE";
+                letterInteraction.script.text = "PIECE OF PICTURE 1";
                 letterInteraction.guide.text = "";
                 break;
             case 6:
-                letterInteraction.script.text = "PIECE OF PICTURE";
+                letterInteraction.script.text = "PIECE OF PICTURE 2";
                 letterInteraction.guide.text = "";
                 break;
             case 7:
-                letterInteraction.script.text = "PIECE OF PICTURE";
+                letterInteraction.script.text = "PIECE OF PICTURE 3";
                 letterInteraction.guide.text = "";
                 break;
             case 8:
-                letterInteraction.script.text = "PIECE OF PICTURE";
+                letterInteraction.script.text = "PIECE OF PICTURE 4";
                 letterInteraction.guide.text = "";
                 break;
-            default:
-                letterInteraction.script.text = "";
-                letterInteraction.guide.text = "CLICK TO PICK UP/DOWN AND MOVE TO OBJECTS\nALSO CLICK AND PRESS 'R' TO ROTATE OBJECTS";
+            case 9:
+                letterInteraction.script.text = "PIECE OF PICTURE 5";
+                letterInteraction.guide.text = "";
                 break;
         }
     }

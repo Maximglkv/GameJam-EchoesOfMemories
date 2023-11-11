@@ -15,4 +15,5 @@ MonoBehaviour:
   width: 1
   height: 1
   itemIcon: {fileID: 21300000, guid: 036d0be405ecdd54790e409a049b9546, type: 3}
-  itemID: 8
+  itemID: 9
+  itemName: PIECE OF PICTURE 5

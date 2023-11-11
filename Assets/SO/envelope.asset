@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd865e28add0a0a478b02e997fc12392, type: 3}
-  m_Name: Picture-broken_S3
+  m_Name: envelope
   m_EditorClassIdentifier: 
-  width: 1
-  height: 1
-  itemIcon: {fileID: 21300000, guid: b4e53d528d77fdc45a584328341475a9, type: 3}
-  itemID: 7
-  itemName: PIECE OF PICTURE 3
+  width: 3
+  height: 3
+  itemIcon: {fileID: 21300000, guid: 212a48487e5977a4eb1a11b364609811, type: 3}
+  itemID: 3
+  itemName: ENVELOPE

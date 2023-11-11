@@ -16,3 +16,4 @@ MonoBehaviour:
   height: 8
   itemIcon: {fileID: 21300000, guid: 61ad09cc3e1862c40b76137c66fe317c, type: 3}
   itemID: 2
+  itemName: LETTER
