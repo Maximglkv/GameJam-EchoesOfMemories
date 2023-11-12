@@ -16,6 +16,13 @@ public class ItemGrid : MonoBehaviour
     [SerializeField] int gridSizeHeight = 12;
     //[SerializeField] GameObject[] iventoryItemPrefab;
 
+    int[,] puzzle = new int[3,3]
+    {
+        {7, 8, 9},
+        {6, 4, 4}, 
+        {5, 4, 4}
+    };
+
     private void Start()
     {
         
@@ -112,7 +119,7 @@ public class ItemGrid : MonoBehaviour
         }
 
         PlaceItem(inventoryItem, posX, posY);
-
+        
         return true;
     }
 

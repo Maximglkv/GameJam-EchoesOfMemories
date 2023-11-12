@@ -12,4 +12,5 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
     public int itemID;
     public string itemName;
+
 }
